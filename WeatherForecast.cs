@@ -1,4 +1,4 @@
-namespace Diary;
+namespace Demetriuzz.Diary;
 
 public class WeatherForecast
 {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Diary.Controllers;
+namespace Demetriuzz.Diary.Controllers;
 
 [ApiController]
 [Route("[controller]")]
