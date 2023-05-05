@@ -1,20 +1,10 @@
 using Diary.Api;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddTimeService();
+
 WebApplication app = builder.Build();
-
-// 1
-// app.MapGet("/", () => "Hello World!");
-
-// 2
-// app.UseWelcomePage();
-
-// 3
-/* app.Run(async (context) =>
-{
-    await context.Response.WriteAsync("---");
-});
-*/
 
 // 4
 /* string DateAsString = "";
@@ -37,7 +27,16 @@ app.Run(async context =>
 */
 
 // 5
+/*
 app.CheckToken("12345");
 app.Run(async (context) => await context.Response.WriteAsync("Hello! Index page."));
+*/
+
+app.Run(async context =>
+{
+    var timeService = app.Services.GetService<TimeService>();
+    context.Response.ContentType = "text/html; charset=utf-8";
+    await context.Response.WriteAsync($"Текущее время: {timeService?.GetTime()}");
+});
 
 app.Run();
