@@ -1,3 +1,5 @@
+using Diary.Api;
+
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 WebApplication app = builder.Build();
 
@@ -15,7 +17,7 @@ WebApplication app = builder.Build();
 */
 
 // 4
-string DateAsString = "";
+/* string DateAsString = "";
 app.Use(async (context, next) =>
 {
     Console.WriteLine("4: begin");
@@ -32,5 +34,10 @@ app.Run(async context =>
     await context.Response.WriteAsync($"Date: {DateAsString}");
     // Console.WriteLine("5: begin"); // зависает если оставить!
 });
+*/
+
+// 5
+app.CheckToken("12345");
+app.Run(async (context) => await context.Response.WriteAsync("Hello! Index page."));
 
 app.Run();
