@@ -1,8 +1,11 @@
 using Diary.Api;
+using Serilog;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddTimeService();
+
+Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
 WebApplication app = builder.Build();
 
@@ -34,6 +37,7 @@ app.Run(async (context) => await context.Response.WriteAsync("Hello! Index page.
 
 app.Run(async context =>
 {
+    Log.Information("Обработка запроса");
     var timeService = app.Services.GetService<TimeService>();
     context.Response.ContentType = "text/html; charset=utf-8";
     await context.Response.WriteAsync($"Текущее время: {timeService?.GetTime()}");
