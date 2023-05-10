@@ -1,46 +1,27 @@
 using Diary.Api;
 using Serilog;
 
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddTimeService();
-
-Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
-
-WebApplication app = builder.Build();
-
-// 4
-/* string DateAsString = "";
-app.Use(async (context, next) =>
+public class Program
 {
-    Console.WriteLine("4: begin");
-    DateAsString = DateTime.Now.ToShortDateString();
-    // до передачи обработки следующему
-    await next.Invoke();
-    // после передачи обработки следующему
-    Console.WriteLine("4: end");
-});
-// терминальный middleware
-app.Run(async context =>
-{
-    Console.WriteLine("5: run");
-    await context.Response.WriteAsync($"Date: {DateAsString}");
-    // Console.WriteLine("5: begin"); // зависает если оставить!
-});
-*/
+    static void Main(string[] args)
+    {
+        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-// 5
-/*
-app.CheckToken("12345");
-app.Run(async (context) => await context.Response.WriteAsync("Hello! Index page."));
-*/
+        builder.Services.AddTimeService();
 
-app.Run(async context =>
-{
-    Log.Information("ќбработка запроса");
-    var timeService = app.Services.GetService<TimeService>();
-    context.Response.ContentType = "text/html; charset=utf-8";
-    await context.Response.WriteAsync($"“екущее врем€: {timeService?.GetTime()}");
-});
+        Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
-app.Run();
+        WebApplication app = builder.Build();
+
+        app.Run(async context =>
+        {
+            Log.Information("ќбработка запроса");
+            var timeService = app.Services.GetService<TimeService>();
+            context.Response.ContentType = "text/html; charset=utf-8";
+            await context.Response.WriteAsync($"“екущее врем€: {timeService?.GetTime()}");
+        });
+
+        app.Run();
+    }
+
+}
