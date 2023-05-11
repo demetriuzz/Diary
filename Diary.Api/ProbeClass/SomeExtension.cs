@@ -1,4 +1,4 @@
-﻿namespace Diary.Api
+﻿namespace Diary.Api.ProbeClass
 {
     public static class SomeExtension
     {

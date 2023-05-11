@@ -1,4 +1,4 @@
-﻿namespace Diary.Api
+﻿namespace Diary.Api.ProbeClass
 {
     // единица конвейера
     public class SomeMiddleware
@@ -18,13 +18,14 @@
         public async Task Invoke(HttpContext context)
         {
             string? token = context.Request.Query["token"];
-            if (token is null || token != pattern) {
+            if (token is null || token != pattern)
+            {
                 context.Response.StatusCode = 403;
                 await context.Response.WriteAsync($"Token {token} invalid!");
             }
             else
             {
-               await next.Invoke(context);
+                await next.Invoke(context);
             }
         }
 

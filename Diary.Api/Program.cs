@@ -1,27 +1,20 @@
-using Diary.Api;
 using Serilog;
+
+namespace Diary.Api;
 
 public class Program
 {
     static void Main(string[] args)
     {
-        WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-
-        builder.Services.AddTimeService();
-
-        Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
-
-        WebApplication app = builder.Build();
-
-        app.Run(async context =>
-        {
-            Log.Information("Обработка запроса");
-            var timeService = app.Services.GetService<TimeService>();
-            context.Response.ContentType = "text/html; charset=utf-8";
-            await context.Response.WriteAsync($"Текущее время: {timeService?.GetTime()}");
-        });
-
-        app.Run();
+        Host.CreateDefaultBuilder(args)
+            .UseSerilog((context, services, configuration) => configuration
+                .ReadFrom.Configuration(context.Configuration)
+                .ReadFrom.Services(services))
+            .ConfigureWebHostDefaults(configure => {
+                configure.UseStartup<Startup>();
+            })
+            .Build()
+            .Run();
     }
 
 }
