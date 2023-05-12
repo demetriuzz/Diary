@@ -5,5 +5,7 @@
 # Rider
 .idea
 
+# Build result
 **/[Bb]in/
 **/[Oo]bj/
+**/[Pp]ublished

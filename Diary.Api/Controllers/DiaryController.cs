@@ -4,7 +4,7 @@ namespace Diary.Api.Controllers
 {
 
     [ApiController]
-    [Route("api/[controller]/")] // mark "[controller]" + class name "DiaryController" = diary
+    [Route("api/[controller]/")] // class name "DiaryController" - mark "[controller]" = path "diary"
     public class DiaryController : ControllerBase
     {
 
