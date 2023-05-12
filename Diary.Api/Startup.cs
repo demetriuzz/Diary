@@ -19,31 +19,33 @@ namespace Diary.Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            // todo database
+            // todo: database
             services.AddControllers();
+
+            // point to check: total status = sum all point status
             services.AddHealthChecks()
-                .AddCheck("api", () => HealthCheckResult.Healthy());
+                .AddCheck("api", () => HealthCheckResult.Healthy())
+                .AddCheck("db", () => HealthCheckResult.Degraded())
+                .AddCheck("x", () => HealthCheckResult.Unhealthy());
         }
 
         /// <summary>
         /// Use on Runtime (Application)
         /// </summary>
+        /// <param name="application"></param>
         public void Configure(IApplicationBuilder application)
         {
-            // application.UseHeaderPropagation(); // need service .. ?
+            // application.UseHeaderPropagation(); // fix: need service
 
-            application.UseHttpsRedirection();
+            application.UseHttpsRedirection(); // https -> http, when error
 
             application.UseRouting();
 
-            application.UseEndpoints(endpoints => { // + service need
+            application.UseEndpoints(endpoints => {
                 endpoints.MapControllers();
                 endpoints.MapHealthChecks("/healthcheck", new HealthCheckOptions
                 {
-                    ResponseWriter = async (context, report) =>
-                    {
-                        await UIResponseWriter.WriteHealthCheckUIResponse(context, report);
-                    }
+                    ResponseWriter = async (context, report) => await UIResponseWriter.WriteHealthCheckUIResponse(context, report)
                 });
             });
         }
