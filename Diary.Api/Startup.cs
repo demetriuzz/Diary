@@ -1,6 +1,8 @@
 ﻿using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Application.Interfaces;
+using Application.Services;
 
 namespace Api;
 
@@ -20,6 +22,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         // todo: database
+        services.AddSingleton<IDiaryService, DiaryService>();
         services.AddControllers();
 
         // point to check: total status = sum all point status
