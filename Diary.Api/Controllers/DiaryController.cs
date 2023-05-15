@@ -1,19 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Application.Models;
 
-namespace Diary.Api.Controllers
+namespace Api.Controllers;
+
+[ApiController]
+[Route("api/[controller]/")] // class name "DiaryController" - mark "[controller]" = path "diary"
+public class DiaryController : ControllerBase
 {
 
-    [ApiController]
-    [Route("api/[controller]/")] // class name "DiaryController" - mark "[controller]" = path "diary"
-    public class DiaryController : ControllerBase
+    [HttpGet("empty")]
+    public IResult GetEmpty()
     {
-
-        [HttpGet("empty")]
-        public IResult GetEmpty()
-        {
-            return Results.Json(new Diary());
-        }
-
+        return Results.Json(new DiaryEntity());
     }
 
 }

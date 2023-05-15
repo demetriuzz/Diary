@@ -24,7 +24,9 @@ services:
       POSTGRES_PASSWORD: postgres # for default user and database name - "postgres"
 
   diary-api:
-    build: Diary.Api/
+    build:
+      context: ./ # current dir
+      dockerfile: Diary.Api/Dockerfile
     hostname: diary-api
     container_name: diary-api
     depends_on:

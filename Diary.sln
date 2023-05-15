@@ -5,6 +5,10 @@ VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Api", "Diary.Api\Diary.Api.csproj", "{DEA08E62-D4D8-437E-A8E2-EC6206A2BA3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Domain", "Diary.Domain\Diary.Domain.csproj", "{D7022865-170F-46CF-B992-7D50A845CCEA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diary.Application", "Diary.Application\Diary.Application.csproj", "{0D34CD3C-7CFA-404C-A6B0-8E3F8976BDBB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{DEA08E62-D4D8-437E-A8E2-EC6206A2BA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DEA08E62-D4D8-437E-A8E2-EC6206A2BA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DEA08E62-D4D8-437E-A8E2-EC6206A2BA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D7022865-170F-46CF-B992-7D50A845CCEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D7022865-170F-46CF-B992-7D50A845CCEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D7022865-170F-46CF-B992-7D50A845CCEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D7022865-170F-46CF-B992-7D50A845CCEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0D34CD3C-7CFA-404C-A6B0-8E3F8976BDBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D34CD3C-7CFA-404C-A6B0-8E3F8976BDBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D34CD3C-7CFA-404C-A6B0-8E3F8976BDBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D34CD3C-7CFA-404C-A6B0-8E3F8976BDBB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
