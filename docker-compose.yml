@@ -30,7 +30,7 @@ services:
     depends_on:
       - diary-postgres
     ports:
-      - 35000:5000 # fix, default localhost ipv6
+      - 35000:5000
     networks:
       - diary_net
     environment:

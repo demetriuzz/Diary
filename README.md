@@ -1,13 +1,12 @@
 # diary
-## _back part_
 
-Diary: a _simple_ calendar with notes.
+Diary: a _simple_ calendar with notes (**backend** part).
 
 Developing, buildind and deploying _progress_ run on `Linux` platform.
 
 More _accurately_ `Linux Debian 11` with installed `dotnet 7.0` packages.
 
-### api map
+## api map
 
 - `/healthcheck` - check application health.
 - `/api/diary/empty` - test api.
@@ -16,8 +15,9 @@ More _accurately_ `Linux Debian 11` with installed `dotnet 7.0` packages.
 ## docker
 
 Deploy and building process may be have __two__ variant:
-A. Deployment system (gitlab, github,..) have `.Net` environment (SDK) for build project.
-B. Deployment system NOT have `.Net` environment (SDK).
+
+- **A**: Deployment system (gitlab, github,..) have `.Net` environment (SDK) for build project.
+- **B**: Deployment system NOT have `.Net` environment (SDK).
 
 ### A: manually build
 
@@ -45,7 +45,7 @@ Because it is an _optional_ extra.
 
 If deployment system NOT have `.Net` environment (SDK), then need buildind and deployment process inside container.
 
-In this variant `Dockerfile` other: inside building and publishing process.
+In this variant `Dockerfile` _other_: inside building and publishing process.
 
 #### docker compose: build, deploy
 
