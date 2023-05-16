@@ -9,8 +9,7 @@ More _accurately_ `Linux Debian 11` with installed `dotnet 7.0` packages.
 ## api map
 
 - `/healthcheck` - check application health.
-- `/api/diary/empty` - test api.
-- _todo_
+- OpenAPI http://localhost:5168/swagger or https://localhost:7120/swagger
 
 ## docker
 
