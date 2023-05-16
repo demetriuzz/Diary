@@ -1,11 +1,12 @@
-﻿namespace Application.Models;
+﻿namespace Diary.Application.Models;
 
 /// <summary>
 /// What need do
 /// </summary>
-public class DiaryEntity
+public class NoteEntity
 {
-    // todo id
+
+    public int Id { get; set; }
 
     /// <summary>
     /// When need do: day in year
@@ -20,6 +21,6 @@ public class DiaryEntity
     /// <summary>
     /// What do it
     /// </summary>
-    public string? Note { get; set; }
+    public string? ToDo { get; set; }
 
 }

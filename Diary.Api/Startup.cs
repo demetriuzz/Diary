@@ -1,9 +1,10 @@
 ﻿using HealthChecks.UI.Client;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
-using Application;
+using Diary.Application;
+using Diary.Persistence;
 
-namespace Api;
+namespace Diary.Api;
 
 public class Startup
 {
@@ -20,7 +21,7 @@ public class Startup
     /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services)
     {
-        // todo: database
+        services.AddDiaryPersistence();
         services.AddDiaryApplication();
         services.AddControllers();
         services.AddSwaggerGen();
@@ -36,6 +37,7 @@ public class Startup
     /// Use on Runtime (Application)
     /// </summary>
     /// <param name="application"></param>
+    /// <param name="environment"></param>
     public void Configure(IApplicationBuilder application, IWebHostEnvironment environment)
     {
         // application.UseHeaderPropagation(); // fix: need service

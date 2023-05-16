@@ -1,43 +1,43 @@
-using Application.Models;
+using Diary.Application.Models;
 
-namespace Application.Interfaces;
+namespace Diary.Application.Interfaces;
 
 public interface IDiaryService
 {
 
     /// <summary>
-    /// Get Diary by id
+    /// Get Note by id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
-    public DiaryEntity GetDiaryEntity(int id);
+    public NoteEntity GetNoteById(int id);
 
     /// <summary>
-    /// Get Diary by Date range
+    /// Get Notes by Date range
     /// </summary>
     /// <param name="from"></param>
     /// <param name="to"></param>
     /// <returns></returns>
-    public List<DiaryEntity> GetDiaryEntitiesByRange(DateOnly from, DateOnly to);
+    public List<NoteEntity> GetNotesByRange(DateOnly from, DateOnly to);
 
     /// <summary>
-    /// Add Diary
+    /// Add Note
     /// </summary>
     /// <param name="entity"></param>
     /// <returns></returns>
-    public DiaryEntity AddDiary(DiaryEntity entity);
+    public NoteEntity AddNote(NoteEntity entity);
 
     /// <summary>
-    /// Update Diary
+    /// Update Note
     /// </summary>
     /// <param name="entity"></param>
     /// <returns></returns>
-    public DiaryEntity UpdateDiary(DiaryEntity entity);
+    public NoteEntity UpdateNote(NoteEntity entity);
 
     /// <summary>
-    /// Delete Diary by id
+    /// Delete Note by id
     /// </summary>
     /// <param name="id"></param>
-    public void DeleteDiary(int id);
+    public void DeleteNote(int id);
 
 }

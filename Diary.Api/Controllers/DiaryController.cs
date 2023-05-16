@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Application.Models;
-using Application.Interfaces;
+using Diary.Application.Models;
+using Diary.Application.Interfaces;
 
-namespace Api.Controllers;
+namespace Diary.Api.Controllers;
 
 [ApiController]
 [Route("api/[controller]/")] // class name "DiaryController" - mark "[controller]" = path "diary"
@@ -18,12 +18,12 @@ public class DiaryController : ControllerBase
     [HttpGet("empty")]
     public IResult GetEmpty()
     {
-        return Results.Json(new DiaryEntity());
+        return Results.Json(new NoteEntity());
     }
 
     [HttpGet("get/{id:int}")]
     public IResult GetDiaryById(int id) {
-        return Results.Json(_diaryService.GetDiaryEntity(id));
+        return Results.Json(_diaryService.GetNoteById(id));
     }
 
 }

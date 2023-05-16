@@ -1,37 +1,37 @@
-using Application.Interfaces;
-using Application.Models;
+using Diary.Application.Interfaces;
+using Diary.Application.Models;
 
-namespace Application.Services;
+namespace Diary.Application.Services;
 
 public class DiaryService : IDiaryService
 {
-    public DiaryEntity AddDiary(DiaryEntity entity)
+    public NoteEntity AddNote(NoteEntity entity)
     {
         // todo
-        return new DiaryEntity{ Note = "Add" };
+        return new NoteEntity{ ToDo = "Add" };
     }
 
-    public void DeleteDiary(int id)
+    public void DeleteNote(int id)
     {
         // todo
     }
 
-    public List<DiaryEntity> GetDiaryEntitiesByRange(DateOnly from, DateOnly to)
+    public List<NoteEntity> GetNotesByRange(DateOnly from, DateOnly to)
     {
         // todo
-        return new List<DiaryEntity>();
+        return new List<NoteEntity>();
     }
 
-    public DiaryEntity GetDiaryEntity(int id)
+    public NoteEntity GetNoteById(int id)
     {
         // todo
-        return new DiaryEntity{ Note = "Get" };
+        return new NoteEntity{ ToDo = "Get" };
     }
 
-    public DiaryEntity UpdateDiary(DiaryEntity entity)
+    public NoteEntity UpdateNote(NoteEntity entity)
     {
         // todo
-        return new DiaryEntity{ Note = "Update" };
+        return new NoteEntity{ ToDo = "Update" };
     }
 
 }

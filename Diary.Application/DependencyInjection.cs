@@ -1,8 +1,8 @@
 using Microsoft.Extensions.DependencyInjection;
-using Application.Interfaces;
-using Application.Services;
+using Diary.Application.Interfaces;
+using Diary.Application.Services;
 
-namespace Application;
+namespace Diary.Application;
 
 public static class DependencyInjection
 {

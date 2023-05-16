@@ -1,6 +1,6 @@
 using Serilog;
 
-namespace Api;
+namespace Diary.Api;
 
 public class Program
 {
