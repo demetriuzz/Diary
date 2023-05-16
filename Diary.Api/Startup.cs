@@ -23,6 +23,7 @@ public class Startup
         // todo: database
         services.AddDiaryApplication();
         services.AddControllers();
+        services.AddSwaggerGen();
 
         // point to check: total status = sum all point status
         services.AddHealthChecks()
@@ -35,13 +36,14 @@ public class Startup
     /// Use on Runtime (Application)
     /// </summary>
     /// <param name="application"></param>
-    public void Configure(IApplicationBuilder application)
+    public void Configure(IApplicationBuilder application, IWebHostEnvironment environment)
     {
         // application.UseHeaderPropagation(); // fix: need service
 
         application.UseHttpsRedirection(); // https -> http, when error
 
         application.UseRouting();
+        application.UseDiaryApiSwagger(environment);
 
         application.UseEndpoints(endpoints =>
         {
