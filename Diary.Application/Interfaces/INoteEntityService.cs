@@ -2,7 +2,7 @@ using Diary.Application.Models;
 
 namespace Diary.Application.Interfaces;
 
-public interface IDiaryService
+public interface INoteEntityService
 {
 
     /// <summary>
@@ -13,12 +13,10 @@ public interface IDiaryService
     public NoteEntity GetNoteById(int id);
 
     /// <summary>
-    /// Get Notes by Date range
+    /// Get All Notes
     /// </summary>
-    /// <param name="from"></param>
-    /// <param name="to"></param>
     /// <returns></returns>
-    public List<NoteEntity> GetNotesByRange(DateOnly from, DateOnly to);
+    public List<NoteEntity> GetNotes();
 
     /// <summary>
     /// Add Note

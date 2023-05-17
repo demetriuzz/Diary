@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Diary.Application\Diary.Application.csproj" />
+    <ProjectReference Include="..\Diary.Persistence.SQLite\Diary.Persistence.SQLite.csproj" />
     <ProjectReference Include="..\Diary.Persistence\Diary.Persistence.csproj" />
   </ItemGroup>
 

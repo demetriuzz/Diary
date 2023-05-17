@@ -12,7 +12,7 @@ public static class DependencyInjection
     /// </summary>
     /// <param name="services"></param>
     public static void AddDiaryApplication(this IServiceCollection services) {
-        services.AddSingleton<IDiaryService, DiaryService>();
+        services.AddScoped<INoteEntityService, NoteEntityService>();
     }
 
 }

@@ -9,3 +9,6 @@
 **/[Bb]in/
 **/[Oo]bj/
 **/[Pp]ublished
+
+# SQLite data base
+**/*.db

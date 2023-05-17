@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Diary.Application;
 using Diary.Persistence;
+using Diary.Persistence.SQLite;
 
 namespace Diary.Api;
 
@@ -21,7 +22,17 @@ public class Startup
     /// <param name="services"></param>
     public void ConfigureServices(IServiceCollection services)
     {
+        string? connectionString = Configuration.GetConnectionString("SQLiteConnection");
+        if (connectionString is not null)
+        {
+            services.AddDiaryPersistenceSqlite(connectionString);
+        }
+        else
+        {
+            throw new ArgumentException("ConnectionString for SQLiteConnection is NULL");
+        }
         services.AddDiaryPersistence();
+
         services.AddDiaryApplication();
         services.AddControllers();
         services.AddSwaggerGen();
@@ -52,7 +63,8 @@ public class Startup
             endpoints.MapControllers();
             endpoints.MapHealthChecks("/healthcheck", new HealthCheckOptions
             {
-                ResponseWriter = async (context, report) => await UIResponseWriter.WriteHealthCheckUIResponse(context, report)
+                ResponseWriter = async (context, report) =>
+                    await UIResponseWriter.WriteHealthCheckUIResponse(context, report)
             });
         });
     }
