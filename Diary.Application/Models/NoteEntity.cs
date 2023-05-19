@@ -1,4 +1,6 @@
-﻿namespace Diary.Application.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Diary.Application.Models;
 
 /// <summary>
 /// What need do
@@ -11,6 +13,7 @@ public class NoteEntity
     /// <summary>
     /// When need do: day in year
     /// </summary>
+    [Required]
     public DateOnly Day { get; set; }
 
     /// <summary>
@@ -21,6 +24,7 @@ public class NoteEntity
     /// <summary>
     /// What do it
     /// </summary>
+    [Required]
     public string? ToDo { get; set; }
 
 }

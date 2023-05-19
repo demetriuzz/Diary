@@ -1,21 +1,25 @@
+using AutoMapper;
 using Diary.Application.Interfaces;
 using Diary.Application.Models;
+using Diary.Domain.Entities;
 
 namespace Diary.Application.Services;
 
 public class NoteEntityService : INoteEntityService
 {
-    INoteRepository _noteRepository;
+    private INoteRepository _noteRepository;
+    private IMapper _mapper;
 
-    public NoteEntityService(INoteRepository noteRepository)
+    public NoteEntityService(INoteRepository noteRepository, IMapper mapper)
     {
         _noteRepository = noteRepository;
+        _mapper = mapper;
     }
 
     public NoteEntity AddNote(NoteEntity entity)
     {
-        // todo
-        return new NoteEntity { ToDo = "Add" };
+        var note = _noteRepository.Add(_mapper.Map<Note>(entity));
+        return _mapper.Map<NoteEntity>(note);
     }
 
     public void DeleteNote(int id)
@@ -25,19 +29,18 @@ public class NoteEntityService : INoteEntityService
 
     public List<NoteEntity> GetNotes()
     {
-        // fixme Note ->  NoteEntity
-        return new List<NoteEntity>();
+        return _mapper.Map<List<NoteEntity>>(_noteRepository.GetAll());
     }
 
     public NoteEntity GetNoteById(int id)
     {
-        // todo
-        return new NoteEntity { ToDo = "Get" };
+        var note = _noteRepository.GetById(id);
+        return _mapper.Map<NoteEntity>(note);
     }
 
     public NoteEntity UpdateNote(NoteEntity entity)
     {
-        // todo
-        return new NoteEntity { ToDo = "Update" };
+        var note = _noteRepository.Update(_mapper.Map<Note>(entity));
+        return _mapper.Map<NoteEntity>(note);
     }
 }

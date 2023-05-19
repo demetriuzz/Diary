@@ -30,7 +30,6 @@ public class NoteRepository : INoteRepository
     public Note Add(Note entity)
     {
         _dbContext.Notes.Add(entity);
-        // fixme
         _dbContext.SaveChanges();
         return entity;
     }
@@ -38,7 +37,6 @@ public class NoteRepository : INoteRepository
     public Note Update(Note entity)
     {
         _dbContext.Notes.Update(entity);
-        // fixme
         _dbContext.SaveChanges();
         return entity;
     }
